@@ -6,10 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Meu Blog{% endblock %}</title>
 
-  <!-- CSS principal -->
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-  <!-- espaço para CSS/links extras por página -->
   {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -35,7 +33,6 @@
     </nav>
   </header>
 
-  <!-- Mensagens do Django -->
   <section class="messages">
     {% if messages %}
       <ul>
