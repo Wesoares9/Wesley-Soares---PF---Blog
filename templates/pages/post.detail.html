@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}{{ object.title }} — Meu Blog{% endblock %}
+
+{% block content %}
+  <article>
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.subtitle }}</p>
+
+    {% if object.image %}
+      <img src="{{ object.image.url }}" alt="{{ object.title }}" style="max-width: 100%; height: auto;">
+    {% endif %}
+
+    <div class="post-content">
+      {{ object.content|safe }}
+    </div>
+
+    <p>Publicado por {{ object.author.username }} em {{ object.published_at }}</p>
+
+    {% if user == object.author %}
+      <p>
+        <a href="{% url 'post-edit' object.pk %}">Editar</a> |
+        <a href="{% url 'post-delete' object.pk %}">Excluir</a>
+      </p>
+    {% endif %}
+  </article>
+{% endblock %}

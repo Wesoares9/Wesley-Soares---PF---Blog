@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Inscrever-se{% endblock %}
+{% block content %}
+  <h1>Registrar</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Criar conta</button>
+  </form>
+{% endblock %}

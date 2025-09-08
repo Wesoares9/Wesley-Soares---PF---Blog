@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Enviar mensagem</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div>
+      {{ form.receiver.label_tag }}
+      {{ form.receiver }}
+      {{ form.receiver.errors }}
+    </div>
+
+    <div>
+      {{ form.subject.label_tag }}
+      {{ form.subject }}
+      {{ form.subject.errors }}
+    </div>
+
+    <div>
+      {{ form.body.label_tag }}
+      {{ form.body }}
+      {{ form.body.errors }}
+    </div>
+
+    <button type="submit">Enviar</button>
+  </form>
+{% endblock %}

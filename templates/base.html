@@ -1,0 +1,59 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Meu Blog{% endblock %}</title>
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <!-- espaço para CSS/links extras por página -->
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header>
+    <nav class="main-nav">
+      <div class="brand"><a href="{% url 'home' %}">MeuBlog</a></div>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">Sobre</a></li>
+        <li><a href="{% url 'post-list' %}">Páginas</a></li>
+      </ul>
+
+      <ul class="nav-right">
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'inbox' %}">Mensagens</a></li>
+          <li><a href="{% url 'profile' %}">Perfil</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'register' %}">Inscrever-se</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mensagens do Django -->
+  <section class="messages">
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li class="msg {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <small>&copy; {% now "Y" %} Meu Blog</small>
+  </footer>
+
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
