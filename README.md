@@ -37,6 +37,8 @@ About: http://127.0.0.1:8000/about/
 Login: http://127.0.0.1:8000/accounts/login/
 Profile (após login): http://127.0.0.1:8000/accounts/profile/
 
+Segue o link com o video: 
+https://drive.google.com/file/d/1CNIdOoElu0QCW3C2u9ViqD1GG65Bft0r/view?usp=sharing
 
 
 
