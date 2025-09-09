@@ -31,6 +31,13 @@ Navegação com herança de templates base.html e NavBar visível em todas as p�
 
 
 
+Home: http://127.0.0.1:8000/
+Páginas list: http://127.0.0.1:8000/pages/
+About: http://127.0.0.1:8000/about/
+Login: http://127.0.0.1:8000/accounts/login/
+Profile (após login): http://127.0.0.1:8000/accounts/profile/
+
+
 
 
 
